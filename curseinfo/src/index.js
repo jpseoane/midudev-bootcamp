@@ -8,6 +8,27 @@ const Title = (props) => {
   <h1>{props.course}</h1>
 }
 
+const Header =(param) =>{
+  return(
+    <h1>{param.course}</h1>
+  );
+}
+const Content = (para) =>{
+  return(        
+      <p>
+        {para.part} {para.exercise}
+      </p>        
+  );
+}
+
+const Total=(params) =>{
+  return(
+    <p>
+     Number of exercises {params.cant1 + params.cant2 + params.cant3}
+    </p>    
+);
+}
+
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
@@ -19,17 +40,11 @@ const App = () => {
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Header course={course} />            
+      <Content part={part1} exercise={exercises1} />
+      <Content part={part2} exercise={exercises2} />
+      <Content part={part3} exercise={exercises3} />
+      <Total cant1={exercises1} cant2={exercises2} cant3={exercises3} />      
     </div>
   )
 }
